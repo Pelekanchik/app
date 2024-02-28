@@ -1,0 +1,170 @@
+[
+    {
+        "model": "tovaru.products",
+        "pk": 1,
+        "fields": {
+            "name": "����� ������",
+            "slug": "truba-krugla",
+            "description": "ĳ����� 200 �� ������� 1000��",
+            "image": "",
+            "price": "400.00",
+            "discount": "0.00",
+            "quantity": 0,
+            "catigory": 2
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 2,
+        "fields": {
+            "name": "����� ���������",
+            "slug": "truba-kvadratna",
+            "description": "������ 300 �� ������ 200 ������� 1250��",
+            "image": "",
+            "price": "500.00",
+            "discount": "0.00",
+            "quantity": 3,
+            "catigory": 3
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 3,
+        "fields": {
+            "name": "�����",
+            "slug": "otvod",
+            "description": "ĳ����� 250 ��",
+            "image": "",
+            "price": "300.00",
+            "discount": "0.00",
+            "quantity": 4,
+            "catigory": 2
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 4,
+        "fields": {
+            "name": "��������",
+            "slug": "kasetnij",
+            "description": "������ 300 �� ������ 500 �� ������� 1000 ��",
+            "image": "",
+            "price": "3000.00",
+            "discount": "0.00",
+            "quantity": 0,
+            "catigory": 5
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 5,
+        "fields": {
+            "name": "Գ����",
+            "slug": "filtr",
+            "description": "��������� 400 �  500 ������ 10��",
+            "image": "",
+            "price": "200.00",
+            "discount": "0.00",
+            "quantity": 3,
+            "catigory": 6
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 6,
+        "fields": {
+            "name": "�����",
+            "slug": "truba",
+            "description": "ĳ������� 315��  ������ 500��",
+            "image": "",
+            "price": "200.00",
+            "discount": "0.00",
+            "quantity": 5,
+            "catigory": 2
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 7,
+        "fields": {
+            "name": "���������",
+            "slug": "trubchatij",
+            "description": "ĳ����� 315�� ������ 1000��",
+            "image": "",
+            "price": "2000.00",
+            "discount": "0.00",
+            "quantity": 4,
+            "catigory": 5
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 8,
+        "fields": {
+            "name": "Գ���� ���� 300",
+            "slug": "filtr-300",
+            "description": "ĳ����� 300�� ������ 100��",
+            "image": "",
+            "price": "200.00",
+            "discount": "0.00",
+            "quantity": 3,
+            "catigory": 6
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 9,
+        "fields": {
+            "name": "����� 90 �������",
+            "slug": "otvod-90-gradusiv",
+            "description": "������ 500 ������ 400 ����� 100 90 �������",
+            "image": "",
+            "price": "400.00",
+            "discount": "0.00",
+            "quantity": 4,
+            "catigory": 3
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 10,
+        "fields": {
+            "name": "����� 125",
+            "slug": "otvod-125",
+            "description": "ĳ���� 125   90 �������",
+            "image": "",
+            "price": "300.00",
+            "discount": "0.00",
+            "quantity": 3,
+            "catigory": 2
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 11,
+        "fields": {
+            "name": "������� 200 � 315",
+            "slug": "perehod-200-h-315",
+            "description": "ĳ����� 200 ���������� � ������ 315",
+            "image": "",
+            "price": "300.00",
+            "discount": "0.00",
+            "quantity": 3,
+            "catigory": 2
+        }
+    },
+    {
+        "model": "tovaru.products",
+        "pk": 12,
+        "fields": {
+            "name": "����� 300 � 200",
+            "slug": "otvod-300-h-200",
+            "description": "������ 300 ������ 200 ����� 100",
+            "image": "",
+            "price": "350.00",
+            "discount": "0.00",
+            "quantity": 2,
+            "catigory": 3
+        }
+    }
+]
