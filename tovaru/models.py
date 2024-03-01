@@ -28,6 +28,7 @@ class Products(models.Model):
             db_table= 'product'
             verbose_name = 'Деталь'
             verbose_name_plural = 'Деталі'
+            ordering = ("id", )
 
         
         def __str__(self):
