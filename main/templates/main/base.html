@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "deps/css/my_css.css" %}">
+    <link rel="stylesheet" href="{% static "deps/css/my_css1.css" %}">
     <!-- Стиль footer-a для главной страницы -->
     {% block css %}
     
@@ -91,7 +91,7 @@
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
                         {% tag_categories as categories %}
                         {% for category in categories %}
-                            <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">{{category.name}}</a></li>
+                            <li><a class="dropdown-item text-white" href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>     
                         {% endfor %}
                     </ul>
                 </div>
@@ -141,7 +141,7 @@
                                                     <div class="col p-0">
                                                         <p>x 100.00 = </p>
                                                     </div>
-                                                    <div class="col p-0"><strong>100.00 $</strong></div>
+                                                    <div class="col p-0"><strong>100.00 грн</strong></div>
                                                     <div class="col p-0">
                                                         <a href="#" class="remove-from-cart" data-cart-id="">
                                                             <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg" %}"
@@ -155,7 +155,7 @@
                                     <div class="card mb-3 shadow-lg">
                                         <div class="card-footer">
                                             <p class="float-left">Итого <strong>1</strong> товар(а) на сумму</p>
-                                            <h4 class="float-left"><strong>100.00 $</strong></h4>
+                                            <h4 class="float-left"><strong>100.00 грн</strong></h4>
                                         </div>
                                     </div>
                                     <!-- Закончилась разметка корзины -->

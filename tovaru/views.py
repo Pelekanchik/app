@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from django.template import context
 
 from tovaru.models import Products 
 
-def catalog(request):
 
-    tovaru = Products.objects.all()
+def catalog(request, category_slug):
+
+    if category_slug == 'all':
+        tovaru = Products.objects.all()
+    else:
+        tovaru = Products.objects.filter(category__slug=category_slug)
+
 
     context = {
         'title': 'home - Каталог',
