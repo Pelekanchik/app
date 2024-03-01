@@ -31,4 +31,13 @@ class Products(models.Model):
 
         
         def __str__(self):
-         return f'{self.name} Кількість - {self.quantity}'
+            return f'{self.name} Кількість - {self.quantity}'
+        
+        def display_id(self):              # добавляємт вид Id під товаром у вигляді 00003 
+            return f"{self.id:05} "
+        
+        def sell_price(self):              # метод вираховування скидки
+             if self.discount :
+                  return round(self.price - self.price*self.discount/100, 2)
+             
+             return self.price
