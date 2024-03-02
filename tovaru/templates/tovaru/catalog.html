@@ -54,7 +54,7 @@
                     <a href="{% url "catalog:product" product.slug %}">   
                         <p class="card-title">{{ product.name }}</p>
                     </a>
-                    <p class="card-text">{{ product.description|truncatechars:35 }}</p>
+                    <p class="card-text">{{ product.description|truncatechars:35 }}</p>            
                     <p class="product_id">id: {{ product.display_id }}</p>
                     <div class="d-flex justify-content-between">
 
@@ -83,27 +83,23 @@
     <ul class="pagination justify-content-center my-4">
         <div class="custom-shadow d-flex">
             <li class="page-item {% if not tovaru.has_previous %} disabled {% endif %} ">
-              <a class="page-link" href = "{% if tovaru.has_previous %}
-                 {% url "catalog:index" slug_url tovaru.previous_page_number %}
-                 {% else %}
-                 # 
-              {% endif %}">Назад</a>
+                <a class="page-link" href = "{% if tovaru.has_previous %}?page={{tovaru.paginator_page_number}}{% else %}
+                # 
+                {% endif %}">Назад</a>
             </li>
 
             {% for page in tovaru.paginator.page_range %}
             {% if page >= tovaru.number|add:-2 and page <= tovaru.number|add:2 %}
                 <li class="page-item" {% if tovaru.number == page %} active {% endif %}>
-                    <a class="page-link" href=" {% url "catalog:index" slug_url page %} ">{{ page }}</a>
+                    <a class="page-link" href="?page={{ page }}">{{ page }}</a>
                 </li>
             {% endif %}
             {% endfor %}
 
 
             <li class="page-item {% if not tovaru.has_next %} disabled {% endif %} ">
-                <a class="page-link" href = "{% if tovaru.has_next %}
-                   {% url "catalog:index" slug_url tovaru.next_page_number %}
-                   {% else %}
-                   # 
+                <a class="page-link" href = "{% if tovaru.has_next %}?page=?page={{tovaru.next_page_number}}{% else %}
+                    # 
                 {% endif %}">Наступна</a>
               </li>
         </div>
@@ -114,7 +110,7 @@
 {% block footer %}
 <footer class="py-4 bg-dark">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Home Python Hub Studio 2023</p>
+        <p class="m-0 text-center text-white">Корпорація  &copy; Бляхарі </p>
     </div>
 </footer>
 {% endblock footer %}
