@@ -5,11 +5,14 @@ body{
     background-position: center center;
     background-size: cover;
     height: 100%;
+    position: relative;
+    padding-bottom: 60px;
 }
 
 .dropdown-toggle::after {
-    content: none;
+  content: none;
 }
+
 
 .custom-shadow {
     box-shadow: 5px 5px 25px 19px #171817;
@@ -27,7 +30,7 @@ body{
     z-index :1;
     padding: 5px 10px;
     border-radius: 3px;
-     font-size: 1rem;
+    font-size: 1rem;
     box-shadow: 2px 2px 15px 9px #161d17;
 }
 
