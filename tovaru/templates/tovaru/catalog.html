@@ -46,7 +46,13 @@
             <button type="submit" class="btn btn-primary mx-3 mt-3">Застосувати</button>
         </form>
     </div>
-
+    {% if request.GET.q %}
+    <h3 class="mt-4">Результат пошуку по запиту {{request.GET.q}}</h3>
+    {% if not tovaru %}
+        <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">    
+        <h2 class="mt-4">По запиту нічого не знайдено</h2>
+    {% endif %}
+    {% endif %}
     {% for product in tovaru %}
         <!-- Карта товара -->
         <div class="col-lg-4 col-md-6 p-4">
@@ -58,9 +64,25 @@
                 {% endif %}
                 <div class="card-body">
                     <a href="{% url "catalog:product" product.slug %}">   
-                        <p class="card-title">{{ product.name }}</p>
+                        <p class="card-title">
+                            {% autoescape off %}
+                                {% if product.headline %}
+                                {{ product.headline }}
+                                {% else %}
+                                {{ product.name }}
+                                {% endif %}
+                            {% endautoescape %}
+                        </p>
                     </a>
-                    <p class="card-text">{{ product.description|truncatechars:35 }}</p>            
+                    <p class="card-text">
+                        {% autoescape off %}
+                            {% if product.bodyline %}
+                            {{ product.bodyline|truncatechars:100 }}
+                            {% else %}
+                            {{ product.description|truncatechars:35 }}
+                            {% endif %}
+                        {% endautoescape %}
+                    </p>            
                     <p class="product_id">id: {{ product.display_id }}</p>
                     <div class="d-flex justify-content-between">
 
@@ -85,29 +107,32 @@
 
 </div>
 <!-- Пагинация -->
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center my-4">
-        <div class="custom-shadow d-flex">
-            <li class="page-item {% if not tovaru.has_previous %}disabled{% endif %}">
-                <a class="page-link" href = "{% if tovaru.has_previous %}?{% change_params page=tovaru.previous_page_number %}{% else %}#{% endif %}">Назад</a>
-            </li>
+{% if tovaru %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center my-4">
+            <div class="custom-shadow d-flex">
 
-            {% for page in tovaru.paginator.page_range %}
-            {% if page >= tovaru.number|add:-2 and page <= tovaru.number|add:2 %}
-                <li class="page-item {% if tovaru.number == page %} active {% endif %}">
-                    <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+                <li class="page-item {% if not tovaru.has_previous %}disabled{% endif %}">
+                    <a class="page-link" href="{% if tovaru.has_previous %}?{% change_params page=tovaru.previous_page_number %}{% else %}#{% endif %}">Назад</a>
                 </li>
-            {% endif %}
-            {% endfor %}
+
+                {% for page in tovaru.paginator.page_range %}
+                {% if page >= tovaru.number|add:-2 and page <= tovaru.number|add:2 %}
+                    <li class="page-item {% if tovaru.number == page %} active {% endif %}">
+                        <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
 
 
-            <li class="page-item {% if not tovaru.has_next %}disabled{% endif %}">
-                <a class="page-link" href = "{% if tovaru.has_next %}?{% change_params page=tovaru.next_page_number %}{% else %}#{% endif %}">Наступна</a>
-            </li>
-        </div>
-    </ul>
-</nav>
-{% endblock content %}
+                <li class="page-item {% if not tovaru.has_next %}disabled{% endif %}">
+                    <a class="page-link" href = "{% if tovaru.has_next %}?{% change_params page=tovaru.next_page_number %}{% else %}#{% endif %}">Наступна</a>
+                </li>
+            </div>
+        </ul>
+    </nav>
+{% endif %}
+{% endblock  %}
 
 {% block footer %}
 <footer class="py-4">
