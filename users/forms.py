@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 from users.models import User
 
@@ -26,4 +26,72 @@ class UserLoginForm(AuthenticationForm):
     #                                       'placeholder': 'Введіть ваш пароль'})
     # )
 
+class UserRegistrationForm(UserCreationForm):
 
+    class Meta:
+        model = User
+        fields = (
+            "first_name",
+            "last_name",
+            "username",
+            "email",
+            "password1",
+            "password2",
+        )
+
+    first_name = forms.CharField()   
+    last_name = forms.CharField()   
+    username = forms.CharField() 
+    email = forms.CharField()  
+    password1 = forms.CharField()  
+    password2 = forms.CharField()  
+
+
+    # first_name = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть ваше ім'я",
+    #         }
+    #     )
+    # )
+    # last_name = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть ваше ім'я",
+    #         }
+    #     )
+    # )
+    # username = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть ваше ім'я",
+    #         }
+    #     )
+    # )
+    # email = forms.EmailField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть ваше ім'я",
+    #         }
+    #     )
+    # )
+    # password1 = forms.PasswordInput(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть ваше ім'я",
+    #         }
+    #     )
+    # )
+    # password2 = forms.PasswordInput(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Введіть ваше ім'я",
+    #         }
+    #     )
+    # )
