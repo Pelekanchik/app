@@ -113,7 +113,7 @@
             <div class="custom-shadow d-flex">
 
                 <li class="page-item {% if not tovaru.has_previous %}disabled{% endif %}">
-                    <a class="page-link" href="{% if tovaru.has_previous %}?{% change_params page=tovaru.previous_page_number %}{% else %}#{% endif %}">Назад</a>
+                <a class="page-link" href="{% if tovaru.has_previous %}?{% change_params page=tovaru.previous_page_number %}{% else %}#{% endif %}">Назад</a>
                 </li>
 
                 {% for page in tovaru.paginator.page_range %}
@@ -126,7 +126,7 @@
 
 
                 <li class="page-item {% if not tovaru.has_next %}disabled{% endif %}">
-                    <a class="page-link" href = "{% if tovaru.has_next %}?{% change_params page=tovaru.next_page_number %}{% else %}#{% endif %}">Наступна</a>
+                    <a class="page-link" href="{% if tovaru.has_next %}?{% change_params page=tovaru.next_page_number %}{% else %}#{% endif %}">Наступна</a>
                 </li>
             </div>
         </ul>
@@ -135,7 +135,7 @@
 {% endblock  %}
 
 {% block footer %}
-<footer class="py-4">
+<footer class="py-4 bg-dark">
     <div class="container">
         <p class="m-0 text-center text-white">Корпорація  &copy; Бляхарі </p>
     </div>
