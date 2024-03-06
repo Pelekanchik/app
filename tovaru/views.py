@@ -26,7 +26,7 @@ def catalog(request, category_slug=None):
     if order_by and order_by != "default":
         tovaru = tovaru.order_by(order_by)
 
-    paginator = Paginator(tovaru, 6)
+    paginator = Paginator(tovaru, 3)
     current_page = paginator.page(int(page))
 
     context = {
@@ -39,9 +39,7 @@ def catalog(request, category_slug=None):
 
 def product(request, product_slug):
 
-    product = Products.objects.get(
-        slug=product_slug
-    )  # ми отримуємо всю інформацію по конкретному товару по slug
+    product = Products.objects.get(slug=product_slug)  
 
     context = {"product": product}
 

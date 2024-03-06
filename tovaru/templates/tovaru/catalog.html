@@ -47,7 +47,7 @@
         </form>
     </div>
     {% if request.GET.q %}
-    <h3 class="mt-4">Результат пошуку по запиту {{request.GET.q}}</h3>
+    <h3 class="mt-4">Результат пошуку по запиту {{ request.GET.q }}</h3>
     {% if not tovaru %}
         <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">    
         <h2 class="mt-4">По запиту нічого не знайдено</h2>
@@ -60,7 +60,7 @@
                 {% if product.image %}
                     <img src="{{ product.image.url }}" class="card-img-top" alt="{{product.name}}">
                 {% else %} 
-                    <img src={% static "deps/images/Not found image.png" %} class="card-img-top" alt="...">
+                    <img src="{% static "deps/images/Not found image.png" %}" class="card-img-top" alt="...">
                 {% endif %}
                 <div class="card-body">
                     <a href="{% url "catalog:product" product.slug %}">   
@@ -74,22 +74,22 @@
                             {% endautoescape %}
                         </p>
                     </a>
-                    <p class="card-text">
-                        {% autoescape off %}
-                            {% if product.bodyline %}
-                            {{ product.bodyline|truncatechars:100 }}
-                            {% else %}
-                            {{ product.description|truncatechars:35 }}
-                            {% endif %}
-                        {% endautoescape %}
-                    </p>            
+                        <p class="card-text">
+                            {% autoescape off %}
+                                {% if product.bodyline %}
+                                {{ product.bodyline|truncatechars:100 }}
+                                {% else %}
+                                {{ product.description|truncatechars:35 }}
+                                {% endif %}
+                            {% endautoescape %}
+                        </p>            
                     <p class="product_id">id: {{ product.display_id }}</p>
                     <div class="d-flex justify-content-between">
 
                         {% if product.discount %}
-                            <p><s>{{ product.price }}</s> грн</p>
+                            <p><s>{{product.price}}</s> грн</p>
                             <p><strong>{{ product.sell_price }} грн</strong></p>
-                            <span class="badge bg-warning text-dark">Скидка {{product.discount}} %</span>
+                            <span class="badge bg-warning text-dark">Знижка {{ product.discount }} %</span>
                         {% else %}
                             <p><strong>{{ product.price }} грн</strong></p>
                         {% endif %}
@@ -135,9 +135,9 @@
 {% endblock  %}
 
 {% block footer %}
-<footer class="py-4 bg-dark">
+{% comment %} <footer class="py-4 bg-dark">
     <div class="container">
-        <p class="m-0 text-center text-white">Корпорація  &copy; Бляхарі </p>
+        <p class="m-0 text-center text-white">Корпорація  &copy; ВентПром </p>
     </div>
-</footer>
-{% endblock footer %}
+</footer> {% endcomment %}
+{% endblock %}

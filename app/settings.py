@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'main',
     'tovaru',
     'users',
+    'carts',
 ]
 
 MIDDLEWARE = [
