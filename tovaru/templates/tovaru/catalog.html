@@ -2,6 +2,11 @@
 {% load static %}
 {% load tovaru_tags %}
 
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
+
+
 {% block content %}
 <div class="row">
     <!-- Форма фильтров -->
@@ -94,7 +99,7 @@
                             <p><strong>{{ product.price }} грн</strong></p>
                         {% endif %}
 
-                        <a href="#" class="btn add-to-cart">
+                        <a href="{% url "cart:cart_add" product.slug %}" class="btn add-to-cart">
                             <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
                                 width="32" height="32">
                         </a>
@@ -118,7 +123,7 @@
 
                 {% for page in tovaru.paginator.page_range %}
                 {% if page >= tovaru.number|add:-2 and page <= tovaru.number|add:2 %}
-                    <li class="page-item {% if tovaru.number == page %} active {% endif %}">
+                    <li class="page-item" {% if tovaru.number == page %} active {% endif %}">
                         <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
                     </li>
                 {% endif %}
@@ -135,9 +140,9 @@
 {% endblock  %}
 
 {% block footer %}
-{% comment %} <footer class="py-4 bg-dark">
+<footer class="py-4 ">
     <div class="container">
-        <p class="m-0 text-center text-white">Корпорація  &copy; ВентПром </p>
+        <p class="m-0 text-center text-white">Компанія  &copy; VentProm </p>
     </div>
-</footer> {% endcomment %}
+</footer> 
 {% endblock %}
