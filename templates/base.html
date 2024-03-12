@@ -26,7 +26,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
             <div class="container">
-                <a class="navbar-brand" href="{% url "main:index" %}">Home</a>
+                <a class="navbar-brand" href="{% url "main:index" %}">Домашня</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
                                     Власний профіль
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item  text-white" href="carts/cart.html">Кошик</a></li>
+                                    <li><a class="dropdown-item  text-white" href="{% url "user:users_cart" %}">Кошик</a></li>
                                     <li><a class="dropdown-item  text-white" href="{% url "user:profile" %}">Власний кабінет</a>
                                     </li>
                                     {% if user.is_admin or user.is_staff %}

@@ -11,7 +11,7 @@ def catalog(request, category_slug=None):
     page = request.GET.get("page", 1)
     on_sale = request.GET.get("on_sale", None)
     order_by = request.GET.get("order_by", None)
-    query = request.GET.get("q", None)
+    query = request.GET.get('q', None)
 
     if category_slug == "all":
         tovaru = Products.objects.all()
@@ -26,13 +26,13 @@ def catalog(request, category_slug=None):
     if order_by and order_by != "default":
         tovaru = tovaru.order_by(order_by)
 
-    paginator = Paginator(tovaru, 3)
+    paginator = Paginator(tovaru,9)
     current_page = paginator.page(int(page))
 
     context = {
-        "title": "home - Каталог",
+        "title": "Home - Каталог",
         "tovaru": current_page,
-        "slug_url": category_slug,
+        "slug_url": category_slug
     }
     return render(request, "tovaru/catalog.html", context)
 

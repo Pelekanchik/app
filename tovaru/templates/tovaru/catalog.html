@@ -20,7 +20,7 @@
             <div class="form-check text-white mx-3">
                 <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == 'on' %}checked{% endif %}>
                 {% if request.GET.q %}
-                    <input type="hidden" name="q" value="{{request.GET.q}}">
+                    <input type="hidden" name="q" value="{{ request.GET.q }}">
                 {% endif %}
                 <label class="form-check-label" for="flexCheckDefault">
                     Товари по акції
@@ -63,7 +63,7 @@
         <div class="col-lg-4 col-md-6 p-4">
             <div class="card border-primary rounded custom-shadow">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{product.name}}">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                 {% else %} 
                     <img src="{% static "deps/images/Not found image.png" %}" class="card-img-top" alt="...">
                 {% endif %}
@@ -72,7 +72,7 @@
                         <p class="card-title">
                             {% autoescape off %}
                                 {% if product.headline %}
-                                {{ product.headline }}
+                                {{product.headline}}
                                 {% else %}
                                 {{ product.name }}
                                 {% endif %}
@@ -82,7 +82,7 @@
                         <p class="card-text">
                             {% autoescape off %}
                                 {% if product.bodyline %}
-                                {{ product.bodyline|truncatechars:100 }}
+                                {{product.bodyline|truncatechars:100}}
                                 {% else %}
                                 {{ product.description|truncatechars:35 }}
                                 {% endif %}
@@ -125,7 +125,7 @@
 
                 {% for page in tovaru.paginator.page_range %}
                 {% if page >= tovaru.number|add:-2 and page <= tovaru.number|add:2 %}
-                    <li class="page-item" {% if tovaru.number == page %} active {% endif %}">
+                    <li class="page-item {% if tovaru.number == page %} active {% endif %}">
                         <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
                     </li>
                 {% endif %}

@@ -18,7 +18,7 @@ class CategoriesAdmin(admin.ModelAdmin):
 class ProductsAdmin(admin.ModelAdmin):  # настройка адмін панелі
     prepopulated_fields = {"slug": ("name",)}
     list_display = ["name", "quantity", "price", "discount"]
-    list_editable = ["discount", "price", "quantity"]
+    list_editable = ["discount",]
     search_fields = ["name", "description"]
     list_filter = ["discount", "quantity", "category"]
     fields = [

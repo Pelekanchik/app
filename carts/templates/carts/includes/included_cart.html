@@ -16,7 +16,7 @@
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
                                     {% csrf_token %}
-                                    -</button>
+                                -</button>
                             </span>
                             <input type="text" class="form-control number" value="{{ cart.quantity }}"
                                 readonly>
@@ -25,7 +25,7 @@
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
                                     {% csrf_token %}
-                                    +</button>
+                                +</button>
                             </span>
                         </div>
                     </div>
@@ -53,3 +53,8 @@
         <h4 class="float-left"><strong>{{ carts.total_price }} грн</strong></h4>
     </div>
 </div>
+{% if carts and not order %}
+<a class="btn btn-dark" href="{% url "orders:create_order" %}">
+    Оформити замовлення
+</a>
+{% endif %}

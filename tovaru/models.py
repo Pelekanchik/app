@@ -29,21 +29,18 @@ class Products(models.Model):
             db_table= 'product'
             verbose_name = 'Деталь'
             verbose_name_plural = 'Деталі'
-            ordering = ("id", )
+            ordering = ("id",)
 
         
         def __str__(self):
             return f'{self.name} Кількість - {self.quantity}'
         
-
         def get_absolute_url(self):
             return reverse("catalog:product", kwargs={"product_slug": self.slug})
         
 
-
-
         def display_id(self):              # добавляємт вид Id під товаром у вигляді 00003 
-            return f"{self.id:05} "
+            return f"{self.id:05}"
         
 
 
