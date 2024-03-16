@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "C:/Users/Анатолій/Desktop/созданий сайт магазіна/Django-4-course-Home-main/Django-4-course-Home-main/orders"
+		}
+	],
+	"settings": {
+		"git.autoRepositoryDetection": "subFolders",
+		"breadcrumbs.enabled": true,
+		"debug.autoExpandLazyVariables": true,
+		"debug.inlineValues": "on",
+		"python.languageServer": "Pylance",
+		"emmet.includeLanguages": {
+			"django-html": "html"
+		},
+		"files.associations": {
+			"**/*.html": "html",
+			"**/templates/*/*.html": "django-html",
+			"**/templates/*/*/*.html": "django-html",
+			"**/templates/*": "django-html",
+			"**/requirements{/**,*}.{txt,in}": "pip-requirements"
+		},
+		"django.snippets.exclude": [
+			"cms",
+			"wagtail"
+		]
+	}
+}
